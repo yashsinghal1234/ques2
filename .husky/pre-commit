@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+echo "Running Snyk Security Scan..."
+
+snyk test
+
+if [ $? -ne 0 ]; then
+  echo "Snyk found vulnerabilities. Commit blocked."
+  exit 1
+fi
